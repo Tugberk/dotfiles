@@ -33,9 +33,9 @@ tohtml() {
 
 text() {
 
-        if [ "$#" -lt 2 ] || [ "" -gt 3]
+        if [ "$#" -lt 2 ] || [ "$#" -gt 3]
         then
-                echo "Wrong use of the command: Too less or more variables"
+                echo "Wrong use of the command: Too less or more arguments"
                 echo 'Correct usage: text filename "title" [-c]'
                 exit
         fi

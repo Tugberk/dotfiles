@@ -6,7 +6,7 @@ alias ..="cd .."
 
 
 topdf() {
-  pandoc $1 -o $2.pdf --template eisvogel --highlight-style tango --include-in-header inline_code.tex
+  pandoc $1 -o $2 --template eisvogel --highlight-style tango --include-in-header inline_code.tex
 }
 
 tohtml() {

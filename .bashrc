@@ -5,27 +5,38 @@ alias refresh="source ~/.bashrc"
 alias ..="cd .."
 
 
+mcd() {
+  mkdir $1
+  cd $1
+}
+  
+
 topdf() {
+  if [ "$#" -lt 2 ] || [ "$#" -gt 2 ]
+  then
+    echo "you have either gave less or more arguments than necessary"
+    echo "usage: topdf file.md out.pdf"
+    return 0
+  fi
   pandoc $1 -o $2 --template eisvogel --highlight-style tango --include-in-header inline_code.tex
 }
 
 tohtml() {
+  if [ "$#" -lt 2 ] || [ "$#" -gt 2 ]
+  then
+    echo "you have either gave less or more arguments than necessary"
+    echo "usage: tohtml file.md out"
+    return 0
+  fi
   generate-md --layout witex --input $1 --output $2
 }
 
 text() {
 
-        if [ "$#" -lt 2 ]
+        if [ "$#" -lt 2 ] || [ "" -gt 3]
         then
-                echo "please give necessary number of args"
-                echo "text filename title [-c]"
-                exit
-        fi
-
-        if [ "$#" -gt 3 ]
-        then
-                echo "you gave too many arguments"
-                echo "text filename title [-c]"
+                echo "Wrong use of the command: Too less or more variables"
+                echo 'Correct usage: text filename "title" [-c]'
                 exit
         fi
 

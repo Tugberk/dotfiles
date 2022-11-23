@@ -4,6 +4,11 @@ alias bashrc="nano ~/.bashrc"
 alias refresh="source ~/.bashrc"
 alias ..="cd .."
 
+beamer() {
+  FOO=$(uuidgen | tr -d "-")
+  pandoc -t beamer -s $1.md -o $FOO.pdf && xdg-open $FOO.pdf
+  }
+
 
 mcd() {
   mkdir $1

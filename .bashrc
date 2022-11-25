@@ -4,6 +4,29 @@ alias bashrc="nano ~/.bashrc"
 alias refresh="source ~/.bashrc"
 alias ..="cd .."
 
+
+create() {
+
+  if [ "$1" == "beamer" ] 
+  then
+    cp ~/templates/beamer.md $2
+    nano $2
+  fi
+  
+  if [ "$1" == "eisvogel" ]
+  then
+    cp ~/templates/eisvogel.md $2
+    nano $2
+  fi
+  
+  if [ "$1" == "text" ]
+  then
+    cp ~/templates/simple.md $2
+  fi
+ }
+ 
+
+
 beamer() {
   FOO=$(uuidgen | tr -d "-")
   pandoc -t beamer -s $1.md -o $FOO.pdf && xdg-open $FOO.pdf
@@ -36,34 +59,4 @@ tohtml() {
   generate-md --layout witex --input $1 --output $2
 }
 
-text() {
 
-        if [ "$#" -lt 2 ] || [ "$#" -gt 3]
-        then
-                echo "Wrong use of the command: Too less or more arguments"
-                echo 'Correct usage: text filename "title" [-c]'
-                exit
-        fi
-
-        touch $1
-        echo "---" >> $1
-
-        if [ "$3" == "-c" ]
-                then
-                        echo "title: $2" >> $1
-                        echo "author: Dr. Tuğberk Kocatekin" >> $1
-                        echo "subtitle: " >> $1
-                        echo "titlepage: true" >> $1
-                else
-                        echo "title: $2" >> $1
-                        echo "author: Dr. Tuğberk Kocatekin" >> $1
-        fi
-
-        echo "fontfamily: lmodern" >> $1
-        echo "linkcolor: blue" >> $1
-        echo "disable-header-and-footer: true" >> $1
-        echo "---" >> $1
-        echo -e "\n" >> $1
-        echo "# $2" >> $1
-
-}

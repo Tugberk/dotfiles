@@ -4,6 +4,8 @@ alias bashrc="nano ~/.bashrc"
 alias refresh="source ~/.bashrc"
 alias ..="cd .."
 
+#everytime i open the bash- name changes
+
 
 create() {
 

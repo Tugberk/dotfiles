@@ -2,6 +2,12 @@
 
 @import 'default';
 
+:root {
+  font-family: "CMU Sans Serif", "Segoe UI", Helvetica, sans-serif;
+  --beamer-main: #1f38c5;
+  --beamer-secondary: #141414;
+}
+
 section {
   /* A4 document size */
   width: 210mm;

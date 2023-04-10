@@ -1,0 +1,45 @@
+/* @theme my-theme */
+
+@import "default";
+
+
+
+section {
+  padding: 50px;
+  font-family: "CMU Sans Serif", "Segoe UI", Helvetica, sans-serif;
+
+}
+
+h1 {
+  font-size: 36px;
+  color: navy;
+}
+
+h2 {
+  font-size: 1.25rem;
+}
+
+header,
+footer {
+  position: absolute;
+  left: 50px;
+  right: 50px;
+  height: 20px;
+  font-size: 12px;
+color: gray;
+}
+
+header {
+  top: 30px;
+}
+
+footer {
+  bottom: 30px;
+}
+
+section::after {
+  font-weight: plain;
+  text-shadow: 1px 1px 0 #fff;
+  font-size: 16px;
+content: attr(data-marpit-pagination) ' / ' attr(data-marpit-pagination-total);
+}
